@@ -1,0 +1,2 @@
+1、cpp
+g++ main.cpp -o ../test/c++
