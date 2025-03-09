@@ -7,7 +7,7 @@ class Solution
 public:
     int divisorSubstrings(int num, int k)
     {
-        int strlen = 1;
+        int strlen = k;
         while (pow(10, strlen) <= num)
         {
             strlen++;
