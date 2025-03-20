@@ -80,3 +80,31 @@ int main()
 
     return 0;
 }
+
+/* 
+class Solution {
+public:
+    using ll = long long;
+    long long maximumOr(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<ll> suf(n + 1, 0);
+        
+        for (int i = n - 1; i >= 0; i--) {
+            suf[i] = suf[i + 1] | nums[i];
+        }
+
+        ll res = 0;
+        ll pre = 0;
+        for (int i = 0; i < n; i++) {
+            // 核心，从左往右 取左半部分而或从右向左记录右半部分，这样res每次取舍时
+            // 就会过滤掉被选中 << k 的数影响的右半部分内容，并且替换掉之前的左半部分
+            // 最后合并就是原来的数
+            res = max(res, pre | (1ll * nums[i] << k) | suf[i + 1]);
+            pre |= nums[i];
+        }
+        return res;
+    }
+};
+
+// 另一解 位运算单纯是利用 异或 的原理取代了上文记录右半部分的工作，同样目的是剥离出被选为 << k 的数对右半部的影响
+*/
