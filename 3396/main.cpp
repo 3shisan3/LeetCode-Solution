@@ -31,6 +31,33 @@ public:
     }
 };
 
+/* hash存入，一次遍历亦可
+另上写法，内部循环也由右到左会更好
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        int n = nums.size();
+        int leftIndex = 0, lastIndex = -1;
+        for (int rightIndex = n - 1; rightIndex >= leftIndex; --rightIndex)
+        {
+            int curVal = nums[rightIndex];
+            for (int i = rightIndex - 1; i >= leftIndex; --i)
+            {
+                if (nums[i] == curVal)
+                {
+                    lastIndex = i;
+                    leftIndex = lastIndex;
+                    break;
+                }
+            }
+        }
+
+        // +1 表示需要移除的元素数量，+2是为了除三向上取整
+        return (lastIndex + 1 + 2) / 3;
+    }
+};
+*/
+
 vector<int> parseInput(const string &input)
 {
     vector<int> nums;
