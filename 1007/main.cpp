@@ -69,6 +69,20 @@ public:
     }
 };
 
+/* 简化版
+int minDominoRotations(vector<int> &tops, vector<int> &bottoms)
+{
+    int temp1 = dealFunc(tops, bottoms, tops[0]);
+    int temp2 = dealFunc(tops, bottoms, bottoms[0]);
+
+    if (temp1 == -1)
+        return temp2;
+    if (temp2 == -1)
+        return temp1;
+    return min(temp1, temp2);
+}
+*/
+
 vector<int> parseInputArray(const string &prompt)
 {
     vector<int> nums;
